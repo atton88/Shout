@@ -22,18 +22,26 @@
 
                     <button type="submit" class="btn btn-primary todo-btn" id="shout">Shout!</button>
                 </form>
-                <button type="submit" class="btn btn-primary todo-btn" id="see-shouts">See Shouts!</button>  
+                <button type="submit" class="btn btn-primary todo-btn" id="see-shouts">See Your Shouts!</button>  
             </div>
-            <div class="row">  Shouts Around you
 
-               {{#each allShouts}} 
-               <ul>
-                   <li>
-                       {{this.body}}
-                   </li>
-               </ul>
-               {{/each}}
 
+               
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Shouts Around you</h5>
+                    {{#each allShouts}} 
+                        <div class="alert alert-primary" role="alert">
+                            {{this.body}}
+                            <br>
+                            By: {{this.Users.0.name}}
+                        
+                            <button class="btn btn-success join-btn" data-id="{{this.id}}">Join</button>
+                            <button class="btn btn-primary" id="{{this.count}}">{{this.count}}</button>
+                        </div>
+                    {{/each}}                   
+                </div>
             </div>
         </div>
     </div>
